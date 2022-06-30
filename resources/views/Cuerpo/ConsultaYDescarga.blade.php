@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<title>Carta Porte - Consulta Y Descarga </title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="author" content="VictorGil" />
+<!-- Favicon icon -->
+<link rel="icon" href="assets/images/ContinoAzul.png" type="image/x-icon">
+<!-- Google font-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<!-- waves.css -->
+<link rel="stylesheet" href="assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+<!-- Required Fremwork -->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+<!-- waves.css -->
+<link rel="stylesheet" href="assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+<!-- themify icon -->
+<link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+<!-- scrollbar.css -->
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+<!-- Style.css -->
+<link rel="stylesheet" type="text/css" href="assets/css/tabla.css">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<!-- Datatable -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/datatables.css">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<!-- Sweetalert2 -->
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+</head>
+
+<body>
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="loader-track">
+<div class="preloader-wrapper">
+<div class="spinner-layer spinner-blue">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div>
+<div class="gap-patch">
+<div class="circle"></div>
+</div>
+<div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+<div class="spinner-layer spinner-red">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div>
+<div class="gap-patch">
+<div class="circle"></div>
+</div>
+<div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+
+<div class="spinner-layer spinner-yellow">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div>
+<div class="gap-patch">
+<div class="circle"></div>
+</div>
+<div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+
+<div class="spinner-layer spinner-green">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div>
+<div class="gap-patch">
+<div class="circle"></div>
+</div>
+<div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pre-loader end -->
+
+<div id="pcoded" class="pcoded">
+<div class="pcoded-overlay-box"></div>
+<div class="pcoded-container navbar-wrapper">
+<nav class="navbar header-navbar pcoded-header">
+<div class="navbar-wrapper">
+<div class="navbar-logo">
+<a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
+<i class="ti-menu"></i>
+</a>
+<div class="mobile-search waves-effect waves-light">
+<div class="header-search">
+<div class="main-search morphsearch-search">
+<div class="input-group">
+<span class="input-group-addon search-close"><i class="ti-close"></i></span>
+<input type="text" class="form-control" placeholder="Enter Keyword">
+<span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+</div>
+</div>
+</div>
+</div>
+<a href="Panel">
+<img class="img-fluid" src="https://contino.com.mx/contenido_demo/uploads/2020/03/logocontiweb.png" alt="Theme-Logo" />
+</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  
+<a class="mobile-options waves-effect waves-light">
+<i class="ti-more"></i>
+</a>
+</div> 
+
+<div class="navbar-container container-fluid">
+<ul class="nav-left">
+<li>
+<div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+</li>
+<li>
+<a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+<i class="ti-fullscreen"></i>
+</a>
+</li>
+</ul>
+<ul class="nav-right">
+<li class="user-profile header-notification">
+<a href="#!" class="waves-effect waves-light">
+<img src="assets/images/AvatarUsuario.png" class="img-radius" alt="User-Profile-Image">
+<span>Nombre Usuario</span>
+<i class="ti-angle-down"></i>
+</a>
+<ul class="show-notification profile-notification">
+<li class="waves-effect waves-light">
+<a href="#!">
+<i class="ti-settings"></i> Configuración
+</a>
+</li>
+<li class="waves-effect waves-light">
+<a href="user-profile.html">
+<i class="ti-user"></i> Perfil
+</a>
+</li>
+<li class="waves-effect waves-light">
+<a href="Login">
+<i class="ti-layout-sidebar-left"></i> Cerrar Sesión
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div class="pcoded-main-container">
+<div class="pcoded-wrapper">
+<nav class="pcoded-navbar">
+<div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+<div class="pcoded-inner-navbar main-menu">
+<div class="">
+<div class="main-menu-header">
+<img class="img-80 img-radius" src="assets/images/AvatarUsuario.png" alt="User-Profile-Image">
+<div class="user-details">
+<span id="more-details">Nombre Usuario<i class="fa fa-caret-down"></i></span>
+</div>
+</div>
+
+<div class="main-menu-content">
+<ul>
+<li class="more-details">
+<a href="user-profile.html"><i class="ti-user"></i>Perfil</a>
+<a href="#!"><i class="ti-settings"></i>Configuración</a>
+<a href="Login"><i class="ti-layout-sidebar-left"></i>Cerrar Sesión</a>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- Inicio De La Barra Menu -->
+
+<div class="pcoded-navigation-label" data-i18n="nav.category.navigation"></div>
+<ul class="pcoded-item pcoded-left-item">
+<li>
+<a href="{{route('Panel')}}" class="waves-effect waves-dark">
+<span class="pcoded-micon"><i class="ti-write"></i><b></b></span>
+<span class="pcoded-mtext" data-i18n="nav.dash.main" style="font-size: 0.8em;">PROCESO CARTA PORTE</span>
+<span class="pcoded-mcaret"></span>
+</a>
+</li>
+
+<div class="pcoded-navigation-label" data-i18n="nav.category.forms" style="font-size: 0.8em;">PDF &amp; XML CARTA PORTE</div>
+<ul class="pcoded-item pcoded-left-item">
+<li class="active">
+<a href="{{route('Consulta-Descarga')}}" class="waves-effect waves-dark">
+<span class="pcoded-micon"><i class="ti-cloud-down"></i><b>FC</b></span>
+<span class="pcoded-mtext" data-i18n="nav.form-components.main" style="font-size: 0.8em;">CONSULTA Y DESCARGA </span>
+<span class="pcoded-mcaret"></span>
+</a>
+</li>
+
+</ul>
+
+<div class="pcoded-navigation-label" data-i18n="nav.category.forms" style="font-size: 0.8em;">CONFIGURACIÓN</div>
+<ul class="pcoded-item pcoded-left-item">
+<li>
+<a href="chart.html" class="waves-effect waves-dark">
+<span class="pcoded-micon"><i class="ti-user"></i></span>
+<span class="pcoded-mtext" data-i18n="nav.form-components.main" style="font-size: 0.8em;">GESTIÓN DE USUARIOS</span>
+<span class="pcoded-mcaret"></span>
+</a>
+</li>
+<li>
+<a href="{{route('Gestion-Domicilio')}}" class="waves-effect waves-dark">
+<span class="pcoded-micon"><i class="ti-pencil-alt"></i></span>
+<span class="pcoded-mtext" data-i18n="nav.form-components.main" style="font-size: 0.8em;">GESTIÓN DE DOMICILIOS</span>
+<span class="pcoded-mcaret"></span>
+</a>
+</li>
+<li>
+<a href="{{route('Gestion-Autotransporte')}}" class="waves-effect waves-dark">
+<span class="pcoded-micon"><i class="ti-truck"></i></span>
+<span class="pcoded-mtext" data-i18n="nav.form-components.main" style="font-size: 0.8em;">GESTIÓN AUTOTRANSPORTE</span>
+<span class="pcoded-mcaret"></span>
+</a>
+</li>
+<li>
+<a href="{{route('Gestion-Operador')}}" class="waves-effect waves-dark">
+<span class="pcoded-micon"><i class="fa fa-id-card"></i></span>
+<span class="pcoded-mtext" data-i18n="nav.form-components.main" style="font-size: 0.8em;">GESTIÓN OPERADOR</span>
+<span class="pcoded-mcaret"></span>
+</a>
+</li>
+
+</ul>
+</li>
+
+</ul>
+ <!-- Fin De La Barra Menu  -->
+</nav>
+
+<div class="pcoded-content">
+<!-- Page-header start -->
+<div class="page-header">
+<div class="page-block">
+<div class="row align-items-center">
+<div class="col-md-8">
+<div class="page-header-title">
+<h5 class="text3d"></h5>
+<p class="m-b-0"></p>
+</div>
+</div>
+<div class="col-md-4">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+<!-- Main-body start -->
+<div class="main-body">
+<div class="page-wrapper">
+<!-- Page-body start -->
+<div class="datagrid">
+<!-- Basic table card start -->
+<div class="card">
+    <div class="card-header">
+        <span class="waves-effect waves-light btn-grd-primary"><h4>Consulta & Descarga</h4></span>
+        <span></span>
+        <div class="card-header-right">
+            <ul class="list-unstyled card-option">
+                <li><i class="fa fa fa-wrench open-card-option" style="color: white"></i></li>
+                <li><i class="fa fa-window-maximize full-card" style="color: white"></i></li>
+                <li><i class="fa fa-refresh reload-card" style="color: white"></i></li>
+            </ul>
+        </div>
+    </div>
+         
+            <table class="display nowrap" id="gestionDomicilio-listado" style="width:100%">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">ID</th>
+                        <th style="text-align: center;">TIPO</th>
+                        <th style="text-align: center;">NOMBRE</th>
+                        <th style="text-align: center;">TIPO</th>
+                        <th style="text-align: center;">NOMBRE</th>
+                        <th style="text-align: center;">PLACA DEL VEHÍCULO</th>
+                        <th style="text-align: center;">NOMBRE DEL OPERADOR</th>
+                        <th style="text-align: center;">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+            </table>        
+            </div>
+<!-- Basic table card end -->
+</div>
+<!-- Page-body end -->
+</div>
+</div>
+<!-- Main-body end -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ <!--  project and team member end --> 
+</div>
+</div>
+<!-- Page-body end -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js "></script>
+<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="assets/pages/widget/excanvas.js "></script>
+<!-- waves js -->
+<script src="assets/pages/waves/js/waves.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js "></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="assets/js/modernizr/modernizr.js "></script>
+<!-- slimscroll js -->
+<script type="text/javascript" src="assets/js/SmoothScroll.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js "></script>
+<!-- menu js -->
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/vertical-layout.min.js "></script>
+<!-- sweetalert2 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- custom js -->
+<script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.js"></script>
+<script type="text/javascript" src="assets/js/script.js "></script>
+<!-- DataTable js  -->
+<script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+
+</body>
+</html>
+
+<script>
+     //Peticion ajax GET Datatables
+jQuery(document).ready(function() {
+    $('#gestionDomicilio-listado').DataTable({
+        responsive: true,
+        processing: true,
+        serverSide: true,
+        type: 'GET',
+        ajax: "{{ url('api/DatosCP-Listado') }}",
+        columnDefs: [{ 
+          "defaultContent": "-", 
+          "targets": "_all",
+          // className: "text-center"
+           }
+         ],
+        columns: [
+            { data: 'id_seccion_ubicacion', name: 'id_seccion_ubicacion' },
+            { data: 'tipo_origen_ubicacion', name: 'tipo_origen_ubicacion' },
+            { data: 'nomb_remit_origen_ubicacion', name: 'nomb_remit_origen_ubicacion' }, 
+            { data: 'tipo_destino_ubicacion', name: 'tipo_destino_ubicacion' },
+            { data: 'nomb_remit_destino_ubicacion', name: 'nomb_remit_destino_ubicacion' },
+            { data: 'autotransporte.placa_vm_at', name: 'autotransporte.placa_vm_at' },
+            { data: 'tipofigura.nombre_operador_tpf', name: 'tipofigura.nombre_operador_tpf' },
+            {mRender: function ( data, type, row, meta ) {
+            return '<a href="javascript:void(0);" class="btn waves-effect waves-light btn-grd-primary btn-sm fa fa-file-code-o" data-toggle="modal" data-target=".bd-actualizar-modal-lg"  onClick=""> XML </a>  <a href="javascript:void(0);" onClick="" class="btn waves-effect waves-light btn-grd-danger btn-sm fa fa-file-pdf-o"> PDF </a>';
+            }
+          }
+        ],
+        language: {
+        "info": "_TOTAL_ Registros",
+        "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "search": "Buscador:",
+        "paginate": {
+            "first": "Primero",
+            "last": "Último",
+            "next": "Siguiente »",
+            "previous": "« Anterior",
+        },
+        "lengthMenu": "Mostrar _MENU_ Registros",
+        "processing": "Cargando...",
+        "emptyTable": "No Hay Datos",
+        "zeroRecords": "No Se Encontraron Resultados",
+        }
+    });
+    $('[type=search]').each(function () {
+        $(this).attr("placeholder", "Inserte Busqueda");
+        $(this).before('<span class="fa fa-search"></span>');
+    });
+});
+</script>
